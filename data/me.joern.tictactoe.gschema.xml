@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist gettext-domain="tictactoe">
+	<schema id="me.joern.tictactoe" path="/me/joern/tictactoe/">
+	</schema>
+</schemalist>
