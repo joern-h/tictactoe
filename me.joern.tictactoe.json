@@ -1,16 +1,16 @@
 {
-    "app-id" : "me.joern.tictactoe",
-    "runtime" : "org.gnome.Platform",
-    "runtime-version" : "3.34",
-    "sdk" : "org.gnome.Sdk",
-    "command" : "tictactoe",
-    "finish-args" : [
+    "app-id": "me.joern.tictactoe",
+    "runtime": "org.gnome.Platform",
+    "runtime-version": "3.34",
+    "sdk": "org.gnome.Sdk",
+    "command": "tictactoe",
+    "finish-args": [
         "--share=network",
         "--share=ipc",
         "--socket=fallback-x11",
         "--socket=wayland"
     ],
-    "cleanup" : [
+    "cleanup": [
         "/include",
         "/lib/pkgconfig",
         "/man",
@@ -22,15 +22,35 @@
         "*.la",
         "*.a"
     ],
-    "modules" : [
+    "modules": [
         {
-            "name" : "tictactoe",
-            "builddir" : true,
-            "buildsystem" : "meson",
-            "sources" : [
+            "name": "libhandy",
+            "buildsystem": "meson",
+            "config-opts": [
+                "-Dprofiling=false",
+                "-Dintrospection=enabled",
+                "-Dgtk_doc=false",
+                "-Dtests=false",
+                "-Dexamples=false",
+                "-Dvapi=false",
+                "-Dglade_catalog=disabled"
+            ],
+            "sources": [
                 {
-                    "type" : "git",
-                    "url" : "file:///home/joern/Projects/TicTacToe"
+                    "type": "git",
+                    "url": "https://gitlab.gnome.org/GNOME/libhandy.git",
+                    "tag": "0.90.0"
+                }
+            ]
+        },
+        {
+            "name": "tictactoe",
+            "builddir": true,
+            "buildsystem": "meson",
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "file:///home/joern/Projects/TicTacToe"
                 }
             ]
         }

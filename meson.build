@@ -5,6 +5,8 @@ project('tictactoe', ['c', 'vala'],
                    ],
 )
 
+dependency('libhandy-1', version: '>= 0.90.0')
+
 i18n = import('i18n')
 
 
